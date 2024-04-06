@@ -35,6 +35,7 @@
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "regenerator-runtime": "^0.13.11",
+    "slick": "^1.12.2",
     "swiper": "^6.8.4",
     "tailwind-scrollbar-hide": "^1.1.7",
     "yup": "^1.3.3"
