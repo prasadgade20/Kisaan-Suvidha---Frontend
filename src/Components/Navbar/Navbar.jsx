@@ -111,7 +111,7 @@ const Navbar = ({ logstatus, handleAuthentication }) => {
                 history("/blog")
               }}
             >
-              Scheme
+              {t("news")}
             </button>
             <button
               className="w-[106px] px-3 py-2"
@@ -131,7 +131,7 @@ const Navbar = ({ logstatus, handleAuthentication }) => {
                 history("/Category")
               }}
             >
-              Product
+              {t("product")}
             </button>
             <button
               className="w-[106px] px-3 py-2"
@@ -139,7 +139,7 @@ const Navbar = ({ logstatus, handleAuthentication }) => {
                 history("/blog")
               }}
             >
-              News
+             {t("news")} 
             </button>
             <button className="w-[100px]" onClick={() => history("/login")}>
               {t("login")}
