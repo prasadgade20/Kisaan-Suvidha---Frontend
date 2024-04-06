@@ -1,6 +1,9 @@
 {
   "search_placeholder": "Search for equipments or tools",
   "product": "Product",
+  "land" : "Land",
+  "tools": "Tools",
+  "Create new account": "Create new account",
   "news": "News",
   "login": "Login",
   "signup": "Signup",

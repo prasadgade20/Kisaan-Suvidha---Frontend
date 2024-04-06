@@ -1,7 +1,10 @@
 {
   "search_placeholder": "उपकरण खोजें",
   "product": "उपकरण",
+  "land":"भूमि",
   "news":"समाचार",
+  "tools": "औजार",
+  "Create new account" :"नया खाता बनाएँ",
   "login": "लॉग इन",
   "logout": "लॉग आउट",
   "signup": "साइन अप",
