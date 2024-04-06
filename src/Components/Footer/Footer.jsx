@@ -85,7 +85,7 @@ const Footer = () => {
                       className="font-semibold block pb-2 text-sm"
                       to="/blog"
                     >
-                      Blog
+                      News
                     </Link>
                   </li>
                 </ul>
@@ -132,7 +132,7 @@ const Footer = () => {
       </div>
       <TractorAnimation />
       <div className="text-center font-semibold pt-4">
-        <p>VESIT-MCA @2024</p>
+        <p>Codement Hackathon 2024</p>
       </div>
     </footer>
   );
