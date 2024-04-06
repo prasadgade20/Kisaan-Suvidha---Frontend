@@ -100,7 +100,7 @@ const Card = ({ data, path }) => {
       </div>
       <div className="w-4/12 items-center justify-center flex">
         <button onClick={() => handleRemove(data.iCartId)} className="transition-all"> Remove</button>
-        <button className="transition-all mx-2" onClick={() => navigate("/not-found")}>Buy</button>
+        <button className="transition-all mx-2" onClick={() => navigate("/payment", {state: data})}>Buy</button>
       </div>
     </div>
   );

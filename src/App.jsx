@@ -2,6 +2,7 @@ import "./App.css";
 import "./styles/styles.css";
 import { Route, Routes } from "react-router";
 import CategoryScreen from "./Screens/Category/CategoryScreen";
+import {loadStripe} from '@stripe/stripe-js';
 import Home from "./Screens/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import Itemsbar from "./Components/Itemsbar/Itemsbar";
@@ -36,6 +37,8 @@ import Blog from "./Screens/Blog/Blog";
 import SingleBlog from "./Screens/Blog/SIngleBlog";
 import CategoryScreenLand from "./Screens/Category/CategoryScreenLand";
 import NotFound from "./SubComponents/Profile/NotFound";
+import Payment from "./Components/Payment/Payment";
+import { Elements } from "@stripe/react-stripe-js";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -115,9 +118,22 @@ function App() {
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReCxs2EFrOl06GPotfgvtNJR4k2Mn2Wshx_3Hzm2EHVw&usqp=CAU&ec=48600112",
     },
   ];
+
+  const stripePromise = loadStripe('pk_test_51KiCrCSBeWSyq0I0iL0qbAm7TjSVl0U8GnAc463PKOdQ6IgxXvToiA7NwhpxmAiwytayUu57ENRVs44g054M91dL00a1svHD4h');
+
+const options = {
+  mode: 'payment',
+  amount: 1099,
+  currency: 'inr',
+  // Fully customizable with appearance API.
+  appearance: {
+    /*...*/
+  },
+};
+
   return (
     <div className={`App ${bgColor}`}>
-      <>
+      <><Elements stripe={stripePromise} options={options}>
         {!isLoading && (
           <>
             {/* <FirebaseData/> */}
@@ -128,6 +144,7 @@ function App() {
           </>
         )}
         {authenticated && <ToastContainer />}
+        
         <Routes>
           <Route
             path="/"
@@ -334,6 +351,15 @@ function App() {
             }
           />
           <Route
+            path="/payment"
+            element={
+              <>
+                <Payment />
+                <Footer />
+              </>
+            }
+          />
+          <Route
             path="/not-found"
             element={
               <>
@@ -343,6 +369,7 @@ function App() {
             }
           />
         </Routes>
+        </Elements>
       </>
     </div>
   );
