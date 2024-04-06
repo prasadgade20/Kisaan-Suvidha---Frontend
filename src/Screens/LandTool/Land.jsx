@@ -21,9 +21,14 @@ const Land = () => {
     vPrice: "",
     vAddress: "",
     // eType: ""
+    area: "", // Area in hectares
+    soilType: "", // Soil type
+    waterSupply: "", // Water supply
+    electricitySupply: "", // Electricity supply (yes or no)
+    availability: "", // Availability of lands in months
   };
   const [products, setProducts] = React.useState(productValues)
-  const productShema = Yup.object().shape({
+  const productSchema = Yup.object().shape({
     // vName: Yup.string()
     //   .required("Product Name is Required."),
     vAddress: Yup.string()
@@ -32,6 +37,11 @@ const Land = () => {
     vPrice: Yup.string()
       .required("Price is Required."),
     // eType: Yup.string("Land Type is Required.")
+    area: Yup.string().required("Area is Required."),
+    soilType: Yup.string().required("Soil Type is Required."),
+    waterSupply: Yup.string().required("Water Supply is Required."),
+    electricitySupply: Yup.string().required("Electricity Supply is Required."),
+    availability: Yup.number().required("Availability Months is Required."),
   });
 
   const handleImage = (e) => {
@@ -58,7 +68,13 @@ const Land = () => {
             // setProductType(product.eType)
             setProducts({
               vPrice: product.vPrice || "",
-              vAddress: product.vAddress || ""
+              vAddress: product.vAddress || "",
+              area: product.area || "",
+              soilType: product.soilType || "",
+              waterSupply: product.waterSupply || "",
+              electricitySupply: product.electricitySupply || "",
+              availability: product.availability || "",
+
             })
           }
         } catch (err) {
@@ -128,85 +144,107 @@ const Land = () => {
 
       <div className="my-2">
         <h1 className="font-semibold text-2xl text-dark-green text-center">
-          Add Product Here.
+          Add Land Here.
         </h1>
-        <div className="bg-white border border-green w-1/4 m-auto rounded-xl p-2 mt-20 flex-col flex items-center">
-          <img
-            src={blobImg ? blobImg : `${path}${image}`}
-            // src={image ? `${path}${image}` : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8TooAFSc9BmItp4K8LDt5TXM3Znf1-4G2iw7Xmj_KcQ&usqp=CAU&ec=48600112"}
-            // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8TooAFSc9BmItp4K8LDt5TXM3Znf1-4G2iw7Xmj_KcQ&usqp=CAU&ec=48600112"
-            alt=""
-            className="w-5/12 border border-green rounded-full -mt-20"
-          />
+        <div className="bg-white border border-green w-96 mx-auto rounded-xl p-4 mt-20 flex-col flex items-center">
+          
           <Formik
             enableReinitialize
             initialValues={products}
-            validationSchema={productShema}
+            validationSchema={productSchema}
             onSubmit={handleSubmit}
           >
             {({ values, errors, touched, handleChange, resetForm }) => (
-              <Form>
-
+              <Form className="w-full">
+                <label htmlFor="vImage" className="my-2">
+                  Upload Image
+                </label>
                 <input
                   accept="image/*"
                   type="file"
                   onChange={(e) => handleImage(e)}
-                  name=""
-                  id=""
-                  className="my-2 w-11/12 outline-none rounded-md block px-2 py-0.5 ml-12"
+                  className="my-2 w-full outline-none rounded-md px-2 py-1"
                 />
 
-                {/* <label>Product Name : </label>
-
-                <Field
-                  className="border rounded-md w-full px-2 py-1 bg-[#feffeb] border-[#1a4d2d]"
-                  name="vName" />
-                {errors.vName && touched.vName ? (
-                  <div style={{ color: "red" }} className="text-danger">{errors.vName}</div>
-                ) : null} */}
-
-                <label>Address : </label>
-
+                <label className="my-2">Address :</label>
                 <Field
                   as="textarea"
-                  className="border rounded-md w-full px-2 py-1 bg-[#feffeb] border-[#1a4d2d]"
-                  name="vAddress" />
-                {errors.vAddress && touched.vAddress ? (
-                  <div style={{ color: "red" }} className="text-danger">{errors.vAddress}</div>
-                ) : null}
-                {/* <label>Product Description : </label>
+                  className="w-full border rounded-md px-2 py-1 bg-gray-100"
+                  name="vAddress"
+                />
+                {errors.vAddress && touched.vAddress && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.vAddress}</div>                )}
+
+                <label className="my-2">Area (in acres):</label>
                 <Field
                   as="textarea"
-                  className="border rounded-md w-full px-2 py-1 bg-[#feffeb] border-[#1a4d2d]"
-                  name="vDescription" />
-                {errors.vDescription && touched.vDescription ? (
-                  <div style={{ color: "red" }} className="text-danger">{errors.vDescription}</div>
-                ) : null} */}
+                  className="w-full border rounded-md px-2 py-1 bg-gray-100"
+                  name="area"
+                />
+                {errors.area && touched.area && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.area}</div>                )}
 
-
-                {/* <label>Land Type : </label>
-
-                <Field name="eType" as="select">
-                  <option value="">type</option>
-                  <option value="lands">Land</option>
-                </Field>
-                {errors.eType && touched.eType ? (
-                  <div style={{ color: "red" }} className="text-danger">{errors.eType}</div>
-                ) : null} */}
-
-
-                <br />
-                <label className="my-2 ">Product Price / (Per Month) : </label>
-
+                <label className="my-2">Soil Type :</label>
                 <Field
-                  className="border rounded-md w-full px-2 py-1 bg-[#feffeb] border-[#1a4d2d]"
-                  name="vPrice" />
-                {errors.vPrice && touched.vPrice ? (
-                  <div style={{ color: "red" }} className="text-danger">{errors.vPrice}</div>
-                ) : null}
- <br />
- <br />
-                <button className="my-1 transition-all m-auto">{state && state.id ? "Update Product" : "Add Product"}</button>
+                  as="textarea"
+                  className="w-full border rounded-md px-2 py-1 bg-gray-100"
+                  name="soilType"
+                />
+                {errors.soilType && touched.soilType && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.soilType}</div>                )}
+
+                <label className="my-2">Water Supply :</label>
+                <div className="flex items-center mb-2">
+                  <label className="mr-2">
+                    <Field type="radio" name="waterSupply" value="Yes" />
+                    Yes
+                  </label>
+                  <label>
+                    <Field type="radio" name="waterSupply" value="No" />
+                    No
+                  </label>
+                </div>
+                {errors.waterSupply && touched.waterSupply && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.waterSupply}</div>                )}
+
+                <label className="my-2">Electricity Supply :</label>
+                <div className="flex items-center mb-2">
+                  <label className="mr-2">
+                    <Field type="radio" name="electricitySupply" value="Yes" />
+                    Yes
+                  </label>
+                  <label>
+                    <Field type="radio" name="electricitySupply" value="No" />
+                    No
+                  </label>
+                </div>
+                {errors.electricitySupply && touched.electricitySupply && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.electricitySupply}</div>                )}
+
+                <label className="my-2">Availability (in Months):</label>
+                <Field
+                  type="number"
+                  className="w-full border rounded-md px-2 py-1 bg-gray-100"
+                  name="availability"
+                />
+                {errors.availability && touched.availability && (
+                  <div style={{ color: "red" }} className="text-danger">{errors.availability}</div>
+                )}
+
+                <label className="my-2">Product Price (Per Month in rupees) :</label>
+                <Field
+                  type="number"
+                  className="w-full border rounded-md px-2 py-1 bg-gray-100"
+                  name="vPrice"
+                />
+                {errors.vPrice && touched.vPrice && (
+                   <div style={{ color: "red" }} className="text-danger">{errors.vPrice}</div>
+                  
+                )}
+
+                <button className="my-4 py-2 px-4 bg-green-500 text-white rounded-md transition-all hover:bg-green-600">
+                  {state && state.id ? "Update Product" : "Add Product"}
+                </button>
               </Form>
             )}
           </Formik>
