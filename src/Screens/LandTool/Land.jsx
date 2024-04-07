@@ -17,10 +17,8 @@ const Land = () => {
   const [productType, setProductType] = React.useState("")
   const [blobImg, setBlobImg] = React.useState("")
   const productValues = {
-    // vName: "",
     vPrice: "",
     vAddress: "",
-    // eType: ""
     area: "", // Area in hectares
     soilType: "", // Soil type
     waterSupply: "", // Water supply
@@ -90,6 +88,11 @@ const Land = () => {
       // formData.append("vName", values.vName)
       formData.append("vAddress", values.vAddress)
       formData.append("vPrice", values.vPrice)
+      formData.append("area", values.area)
+      formData.append("soilType", values.soilType)
+      formData.append("waterSupply", values.waterSupply)
+      formData.append("electricitySupply", values.electricitySupply)
+      formData.append("availability", values.availability)
       formData.append("vImage", image || "")
       formData.append("eType", "lands")
       formData.append("iUserId", sessionStorage.getItem("userId"))
