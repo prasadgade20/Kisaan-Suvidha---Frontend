@@ -2,7 +2,7 @@ import "./App.css";
 import "./styles/styles.css";
 import { Route, Routes } from "react-router";
 import CategoryScreen from "./Screens/Category/CategoryScreen";
-import { loadStripe } from "@stripe/stripe-js";
+import {loadStripe} from '@stripe/stripe-js';
 import Home from "./Screens/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import Itemsbar from "./Components/Itemsbar/Itemsbar";
@@ -45,7 +45,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [about, setAbout] = useState({});
-  const navigate = useNavigate("");
+  const navigate = useNavigate('');
   const handleAuthentication = (status) => {
     if (status == false) {
       localStorage.clear();
@@ -56,6 +56,7 @@ function App() {
     setAuthenticated(status);
 
     navigate("/");
+
   };
   useEffect(() => {
     let val = localStorage.getItem("RLog");
@@ -66,9 +67,9 @@ function App() {
       setIsLoading(false);
       setAuthenticated(true);
       setAbout({
-        name: username,
-        email: useremail,
-      });
+        "name": username,
+        "email": useremail
+      })
     } else if (!authenticated) {
       // toast.info("New user? Sign Up then!");
     }
@@ -119,43 +120,44 @@ function App() {
     },
   ];
 
-  const stripePromise = loadStripe(
-    "pk_test_51KiCrCSBeWSyq0I0iL0qbAm7TjSVl0U8GnAc463PKOdQ6IgxXvToiA7NwhpxmAiwytayUu57ENRVs44g054M91dL00a1svHD4h"
-  );
+  const stripePromise = loadStripe('pk_test_51KiCrCSBeWSyq0I0iL0qbAm7TjSVl0U8GnAc463PKOdQ6IgxXvToiA7NwhpxmAiwytayUu57ENRVs44g054M91dL00a1svHD4h');
 
-  const options = {
-    mode: "payment",
-    amount: 1099,
-    currency: "inr",
-    // Fully customizable with appearance API.
-    appearance: {
-      /*...*/
-    },
-  };
+const options = {
+  mode: 'payment',
+  amount: 1099,
+  currency: 'inr',
+  // Fully customizable with appearance API.
+  appearance: {
+    /*...*/
+  },
+};
 
   return (
     <div className={`App ${bgColor}`}>
-      <>
-        <Elements stripe={stripePromise} options={options}>
-          {/* <FirebaseData/> */}
-          <Navbar
-            logstatus={authenticated}
-            handleAuthentication={handleAuthentication}
-          />
-          {authenticated && <ToastContainer />}
-
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  {isLoading ? (
-                    <LoadingAnimation setBgColor={setBgColor} />
-                  ) : (
-                    <>
-                      <Intro />
-                      {/* <Trending /> */}
-                      {/* {listOfTools.map((e, id) => {
+      <><Elements stripe={stripePromise} options={options}>
+        {!isLoading && (
+          <>
+            {/* <FirebaseData/> */}
+            <Navbar
+              logstatus={authenticated}
+              handleAuthentication={handleAuthentication}
+            />
+          </>
+        )}
+        {authenticated && <ToastContainer />}
+        
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                {isLoading ? (
+                  <LoadingAnimation setBgColor={setBgColor} />
+                ) : (
+                  <>
+                    <Intro />
+                    {/* <Trending /> */}
+                    {/* {listOfTools.map((e, id) => {
                       return (
                         <CategorySection
                           key={id}
@@ -165,218 +167,218 @@ function App() {
                         />
                       );
                     })} */}
-                      {/* <LandMap /> */}
-                      <Testimonials />
-                      <Faq />
-                      <Footer />
-                      {/* <ChatbotButton /> */}
-                    </>
-                  )}
-                </>
-              }
-            />
-            <Route
-              path="/features"
-              element={
-                <>
-                  <Features />
-                  <Footer />
-                  <ChatbotButton />
-                </>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                !isLoading && (
-                  <>
-                    {" "}
-                    <Login
-                      handleAuthentication={handleAuthentication}
-                      setAbout={setAbout}
-                    />
-                    <Footer />{" "}
-                  </>
-                )
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                !isLoading && (
-                  <>
-                    <Signup
-                      handleAuthentication={handleAuthentication}
-                      setAbout={setAbout}
-                    />
+                    {/* <LandMap /> */}
+                    <Testimonials />
+                    <Faq />
                     <Footer />
+                    {/* <ChatbotButton /> */}
                   </>
-                )
-              }
-            />
-            <Route
-              path="/blog"
-              element={
+                )}
+              </>
+            }
+          />
+          <Route
+            path="/features"
+            element={
+              <>
+                <Features />
+                <Footer />
+                <ChatbotButton />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              !isLoading && (
                 <>
-                  <Blog />
+                  {" "}
+                  <Login
+                    handleAuthentication={handleAuthentication}
+                    setAbout={setAbout}
+                  />
+                  <Footer />{" "}
+                </>
+              )
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              !isLoading && (
+                <>
+                  <Signup
+                    handleAuthentication={handleAuthentication}
+                    setAbout={setAbout}
+                  />
                   <Footer />
                 </>
-              }
-            />
+              )
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <>
+                <Blog />
+                <Footer />
+              </>
+            }
+          />
             <Route
-              path="/Category"
-              element={
-                <>
-                  <CategoryScreen />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/category-land/:name"
-              element={
-                <>
-                  <CategoryScreenLand />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/Category/:name"
-              element={
-                <>
-                  <CategoryScreen />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/howitworks"
-              element={
-                <>
-                  <HowItWorks />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <>
-                  <Cart />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/single-blog/:id"
-              element={
-                <>
-                  <SingleBlog />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/product/:name"
-              element={
-                <>
-                  <Product />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/product/list"
-              element={
-                <>
-                  <ProductList />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <>
-                  <Profile />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile/landTools"
-              element={
-                <>
-                  <LandTools />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile/land"
-              element={
-                <>
-                  <Land />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile/rentnow"
-              element={
-                <>
-                  <RentNow />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile/change-password"
-              element={
-                <>
-                  <LandLend />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/profile/setting"
-              element={
-                <>
-                  <UserSetting />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/payment"
-              element={
-                <>
-                  <Payment />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/tnc"
-              element={
-                <>
-                  <TnC />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/not-found"
-              element={
-                <>
-                  <NotFound />
-                  <Footer />
-                </>
-              }
-            />
-          </Routes>
+            path="/Category"
+            element={
+              <>
+                <CategoryScreen />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/category-land/:name"
+            element={
+              <>
+                <CategoryScreenLand />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Category/:name"
+            element={
+              <>
+                <CategoryScreen />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/howitworks"
+            element={
+              <>
+                <HowItWorks />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <>
+                <Cart />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/single-blog/:id"
+            element={
+              <>
+                <SingleBlog />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/product/:name"
+            element={
+              <>
+                <Product />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/product/list"
+            element={
+              <>
+                <ProductList />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Profile />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile/landTools"
+            element={
+              <>
+                <LandTools />
+                <Footer />
+              </>
+            }
+          />
+           <Route
+            path="/profile/land"
+            element={
+              <>
+                <Land />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile/rentnow"
+            element={
+              <>
+                <RentNow />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile/change-password"
+            element={
+              <>
+                <LandLend />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/profile/setting"
+            element={
+              <>
+                <UserSetting />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <>
+                <Payment />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/tnc"
+            element={
+              <>
+                <TnC />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/not-found"
+            element={
+              <>
+                <NotFound />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
         </Elements>
       </>
     </div>
