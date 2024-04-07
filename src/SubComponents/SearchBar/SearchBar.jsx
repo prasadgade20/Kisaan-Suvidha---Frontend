@@ -103,18 +103,14 @@ const SearchBar = ({ additionalClass }) => {
             {contextApi.search || contextApi.search?.length > 0
               ? data
                   .filter((e) => {
-                    return e.vName
-                      .toLowerCase()
-                      .includes(contextApi?.search?.toLowerCase());
+                    return e?.vName?.toLowerCase()?.includes(contextApi?.search?.toLowerCase());
                   })
                   .map((e) => {
                     return <Component path={path} data={e} />;
                   })
               : null}
             {data.filter((e) => {
-              return e.vName
-                .toLowerCase()
-                .includes(contextApi.search?.toLowerCase());
+              return e?.vName?.toLowerCase()?.includes(contextApi.search?.toLowerCase());
             }).length == 0 ? (
               <p className="text-gray-dark p-0 whitespace-nowrap">
                 No Results Found
