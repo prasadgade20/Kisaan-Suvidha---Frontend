@@ -103,7 +103,7 @@ const Navbar = ({ logstatus, handleAuthentication }) => {
                 dispatch(GetAllProducts())
               }}
             >
-              {t("tools")}
+              {t("news")}
             </button>
             <button
               className="w-[106px] px-3 py-2"
