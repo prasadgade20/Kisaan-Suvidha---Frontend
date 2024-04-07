@@ -25,8 +25,8 @@ const Navbar = ({ logstatus, handleAuthentication }) => {
   }
   return (
     <div
-      style={{ position: "fixed", width: "100vw", zIndex: 999 }}
-      className="bg-gradient-to-r from-[#0BAB64] to-[#3BB78F] items-center sticky"
+      style={{ position: "fixed", display:"block",  width: "100vw", zIndex: 999 }}
+      className="bg-gradient-to-r from-[#0BAB64] to-[#3BB78F] items-center"
     >
       <div className="flex flex-row items-center gap-4 lg:gap-8 text-[#ffffff] px-4 pr-8 md:px-10 lg:px-20 py-2">
 

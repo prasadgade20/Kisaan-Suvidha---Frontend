@@ -81,7 +81,7 @@ const Card = ({ data, path }) => {
 
   }
   return (
-    <div className="h-auto border border-[#f0f0f0] shadow-md flex mx-2 my-3 rounded-xl">
+    <div className="h-auto border border-[#f0f0f0] shadow-md flex mx-2 my-3 rounded-xl justify-space-between">
       {sessionStorage.getItem('userId') && <ToastContainer />}
       <img
         src={`${path}${vImage}`}
@@ -99,8 +99,8 @@ const Card = ({ data, path }) => {
         </p>
       </div>
       <div className="w-4/12 items-center justify-center flex">
-        <button onClick={() => handleRemove(data.iCartId)} className="transition-all"> Remove</button>
-        <button className="transition-all mx-2" onClick={() => navigate("/payment", {state: data})}>Buy</button>
+        <button onClick={() => handleRemove(data.iCartId)} className="transition-all w-[106px] px-3 py-2"> Remove</button>
+        <button className="transition-all mx-2 w-[106px] px-3 py-2" onClick={() => navigate("/payment", {state: data})}>Buy</button>
       </div>
     </div>
   );
