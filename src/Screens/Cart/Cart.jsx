@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2"
 
 const Cart = () => {
   const [data, setData] = React.useState([])
@@ -100,7 +101,18 @@ const Card = ({ data, path }) => {
       </div>
       <div className="w-4/12 items-center justify-center flex">
         <button onClick={() => handleRemove(data.iCartId)} className="transition-all w-[106px] px-3 py-2"> Remove</button>
-        <button className="transition-all mx-2 w-[106px] px-3 py-2" onClick={() => navigate("/payment", {state: data})}>Buy</button>
+        <button className="transition-all mx-2 w-[106px] px-3 py-2" onClick={() => {
+          Swal.fire({
+            title: "Caution",
+            text: "Kindly follow the Terms and Conditions",
+            icon: "warning",
+            footer: '<a href="/tnc" target="_blank">Click here for Terms and Conditions</a>'
+          }).then((result)=>{
+            if(result.isConfirmed){
+              navigate("/payment", {state: data})
+            }
+          });
+          }}>Buy</button>
       </div>
     </div>
   );

@@ -3,8 +3,18 @@
 @tailwind utilities;
 
 button {
-  @apply bg-gradient-to-r from-[#FF512F] to-[#FF512F] px-4 rounded-lg pb-1 font-semibold hover:scale-105 text-[#ffffff];
+  background-image: linear-gradient(to right, #FF512F, #FF512F);
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
+
+button:hover {
+  background-image: linear-gradient(to right, #cb3517, #cb3517);
+}
+
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

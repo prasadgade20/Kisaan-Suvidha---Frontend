@@ -234,7 +234,7 @@ const Land = () => {
                   <div style={{ color: "red" }} className="text-danger">{errors.availability}</div>
                 )}
 
-                <label className="my-2">Product Price (Per Month in rupees) :</label>
+                <label className="my-2">Land Price (Per Month in rupees) :</label>
                 <Field
                   type="number"
                   className="w-full border rounded-md px-2 py-1 bg-gray-100"
@@ -246,7 +246,7 @@ const Land = () => {
                 )}
 
                 <button className="my-4 py-2 px-4 bg-green-500 text-white rounded-md transition-all hover:bg-green-600">
-                  {state && state.id ? "Update Product" : "Add Product"}
+                  {state && state.id ? "Update Land" : "Add Land"}
                 </button>
               </Form>
             )}
