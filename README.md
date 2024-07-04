@@ -1,9 +1,9 @@
 ## What is Kisaan Suvidha ?
 
-1.1 Introduction:
+## 1.1 Introduction:
 Welcome to Kisaan Suvidha, an innovative online platform designed to empower farmers and streamline agricultural processes. Our mission is to bridge the gap between farmers and the resources they need by providing a comprehensive suite of modules catering to various aspects of agriculture. In this era of technological advancement, we believe in leveraging digital solutions to enhance the efficiency and effectiveness of farming practices. At Kisaan Suvidha, we are committed to creating a digital ecosystem that empowers farmers, promotes sustainable practices, and contributes to the overall growth of the agricultural sector. Join us on this journey towards a more connected, informed, and efficient farming community. Together, let's cultivate success and harvest a brighter future for agriculture.
 
-1.2 Problem statement :
+## 1.2 Problem statement :
 Agriculture, the backbone of our society, grapples with issues that hinder the growth of individual farmers and the sector as a whole. The lack of awareness about government schemes leaves farmers missing out on vital support. Additionally, the hefty price tag on modern equipment restricts adoption, and navigating the complexities of land rentals proves challenging for both landowners and farmers. Kisaan Suvidha steps in as a comprehensive solution, offering a user-friendly platform. It not only enlightens farmers about government initiatives but alsoenables them to share and rent equipment among themselves. Simultaneously, it simplifies the process of land rentals, fostering collaboration and efficiency. With these interventions, we aimto empower farmers, boost productivity, and contribute to the resilience of our agricultural
 community.
 
