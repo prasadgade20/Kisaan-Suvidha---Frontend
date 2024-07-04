@@ -12,7 +12,7 @@ This web app aims to help farmers save money by providing an affordable solution
 Overall, the web app provides a simple and efficient solution for farmers to rent and lend tools, making farming more accessible and cost-effective for everyone involved.
 
 ## Preview 
-You can see the live preview [here](https://farmrent.netlify.app/)
+
 
 ## Local environment setup 
 1. Clone the repo.
@@ -22,6 +22,3 @@ You can see the live preview [here](https://farmrent.netlify.app/)
 7. Setup firebase and get your own set of keys.
 8. Copy all the key fields from `.env.sample` and place your own set of values there.
 9. Run `npm run dev`.
-10. Visit  [http://127.0.0.1:5173/](http://127.0.0.1:5173/)  in your preferred browser.
-
-### Show ❤️ by a 🌟 to this repository.
