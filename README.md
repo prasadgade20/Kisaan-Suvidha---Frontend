@@ -1,15 +1,11 @@
-## What is Farm Rent ?
+## What is Kisaan Suvidha ?
 
-Farm Rent is a web application for farming tools rental and for land on lease service. It is built using ReactJS, Tailwind CSS and Google Firebase for database.
+1.1 Introduction:
+Welcome to Kisaan Suvidha, an innovative online platform designed to empower farmers and streamline agricultural processes. Our mission is to bridge the gap between farmers and the resources they need by providing a comprehensive suite of modules catering to various aspects of agriculture. In this era of technological advancement, we believe in leveraging digital solutions to enhance the efficiency and effectiveness of farming practices. At Kisaan Suvidha, we are committed to creating a digital ecosystem that empowers farmers, promotes sustainable practices, and contributes to the overall growth of the agricultural sector. Join us on this journey towards a more connected, informed, and efficient farming community. Together, let's cultivate success and harvest a brighter future for agriculture.
 
-## Introduction
-This web app based on React and Tailwind CSS is a platform designed for farmers to rent out their tools and equipment to other farmers who need them. The app provides an easy-to-use interface that allows farmers to create a profile, list their tools, set their rental rates, and manage their rental requests.
-
-On the other hand, farmers who are looking for tools can browse through the available tools listed by other farmers, search for specific tools, and send rental requests to the tool owners. The app provides a secure payment system that allows for easy and safe transactions between tool owners and renters.
-
-This web app aims to help farmers save money by providing an affordable solution for their equipment needs. It also promotes community collaboration and sustainability by allowing farmers to share their resources and reduce their carbon footprint.
-
-Overall, the web app provides a simple and efficient solution for farmers to rent and lend tools, making farming more accessible and cost-effective for everyone involved.
+1.2 Problem statement :
+Agriculture, the backbone of our society, grapples with issues that hinder the growth of individual farmers and the sector as a whole. The lack of awareness about government schemes leaves farmers missing out on vital support. Additionally, the hefty price tag on modern equipment restricts adoption, and navigating the complexities of land rentals proves challenging for both landowners and farmers. Kisaan Suvidha steps in as a comprehensive solution, offering a user-friendly platform. It not only enlightens farmers about government initiatives but alsoenables them to share and rent equipment among themselves. Simultaneously, it simplifies the process of land rentals, fostering collaboration and efficiency. With these interventions, we aimto empower farmers, boost productivity, and contribute to the resilience of our agricultural
+community.
 
 ## Preview 
 
