@@ -92,11 +92,3 @@ community.
   ![image](https://github.com/prasadgade20/Kisaan-Suvidha---Frontend/assets/43978977/ac300ccb-1b7b-4f25-ba0b-2e8837eee618)
 
 
-## Local environment setup 
-1. Clone the repo.
-2. Go to the folder `cd farmtool-rent`.
-3. Run `npm install`
-4. Create a `.env` file in root of directory. 
-7. Setup firebase and get your own set of keys.
-8. Copy all the key fields from `.env.sample` and place your own set of values there.
-9. Run `npm run dev`.
