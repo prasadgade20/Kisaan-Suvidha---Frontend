@@ -11,6 +11,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { useLocation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 import axios from "axios";
 import "./payment.css";
@@ -29,7 +30,7 @@ const Payment = ({ history }) => {
   console.log(location.state)
 
 //   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  const data = useSelector((state) => state.user.getUserByIdData.data);
+  const data = useSelector((state) => state?.user?.getUserByIdData?.data);
 //   const { error } = useSelector((state) => state.newOrder);
 
   const paymentData = {
@@ -74,8 +75,7 @@ const Payment = ({ history }) => {
         },
       });
 
-
-            payBtn.current.disabled = false;
+          payBtn.current.disabled = false;
           order = {
             ...order,
             transactionId: result.paymentIntent.id,
@@ -83,7 +83,7 @@ const Payment = ({ history }) => {
             iProductId: productData.iProductId
           };
           
-    await axios.post(
+        await axios.post(
             "http://localhost:5007/api/order/createOrder",
             order,
             config
@@ -91,7 +91,11 @@ const Payment = ({ history }) => {
             console.log(err)
           });
 
-          navigate("/success");
+          toast.success("Payment Successful", 'Ippōtu nīṅkaḷ urimaiyāḷar')
+          setTimeout(()=> {
+            navigate("/");
+          }, 3000)
+          
     
     } catch (error) {
       payBtn.current.disabled = false;
@@ -106,6 +110,7 @@ const Payment = ({ history }) => {
 
   return (
     <Fragment>
+      <ToastContainer />
         <br />
         <br />
         <br />

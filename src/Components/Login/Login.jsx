@@ -72,7 +72,7 @@ const Login = ({ handleAuthentication, setAbout }) => {
               </div>
               <button
                 type="submit"
-                className="my-2 hover:scale-100 bg-gradient-to-r hover:from-[#fa3c16] hover:to-[#ed8f07] py-2"
+                className="my-2 hover:scale-100 hover:from-[#fa3c16] hover:to-[#ed8f07] py-2"
               >
                 Login
               </button>

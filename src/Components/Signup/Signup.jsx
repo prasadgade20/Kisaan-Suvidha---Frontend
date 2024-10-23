@@ -8,7 +8,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import farmer from "../../assets/farmer1121.jpg";
+import farmer from "../../assets/Prashant.jpg";
 
 const Signup = ({ handleAuthentication }) => {
   const navigate = useNavigate();
@@ -184,7 +184,7 @@ const Signup = ({ handleAuthentication }) => {
                 </div>
 
                 <button
-                  className="my-2 hover:scale-100 bg-gradient-to-r hover:from-[#fa3c16] hover:to-[#ed8f07] py-2"
+                  className="my-2 hover:scale-100 hover:from-[#fa3c16] hover:to-[#ed8f07] py-2"
                   type="submit"
                   // onClick={(e)=>handleSubmit(e)}
                 >
